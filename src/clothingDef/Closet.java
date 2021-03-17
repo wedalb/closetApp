@@ -9,21 +9,33 @@ public class Closet {
     private List<Top> tops; 
     private List<Bottom> bottoms; 
     private List<Dress> dresses; 
-    private List<Shoe> shoes; 
-    private List<Accessoire> accessoires; 
-    private List<Jewelry> jewelry; 
+    private List<Shoe> shoes;
+    private List<Bag> bags;
+    private List<Accessoire> accessories;
+    private List<Jewelry> jewelry;
+
 
     /**empty closet */
-    public Closet(){}
+    public Closet(){
+        this.tops = Collections.emptyList();
+        this.bottoms = Collections.emptyList();
+        this.dresses = Collections.emptyList();
+        this.shoes = Collections.emptyList();
+        this.bags = Collections.emptyList();
+        this.accessories = Collections.emptyList();
+        this.jewelry = Collections.emptyList();
+
+    }
     /**Already full closet */
     public Closet(List<Top> tops, List<Bottom> bottoms, List<Dress> dresses,
-            List<Shoe> shoes, List<Accessoire> accessoires, List<Jewelry> jewelry){
+            List<Shoe> shoes,  List<Bag> bags, List<Accessoire> accessories, List<Jewelry> jewelry){
         this.tops = tops; 
         this.bottoms = bottoms; 
         this.dresses = dresses; 
         this.shoes = shoes; 
-        this.accessoires = accessoires; 
-        this.jewelry = jewelry; 
+        this.accessories = accessories;
+        this.jewelry = jewelry;
+        this.bags = bags;
     }
 
 
@@ -52,11 +64,11 @@ public class Closet {
     public void setShoes(List<Shoe> shoes){
         this.shoes = shoes; 
     }
-    public List<Accessoire> getAccessoires(){
-        return this.accessoires; 
+    public List<Accessoire> getAccessories(){
+        return this.accessories;
     }
-    public void setAccessoires(List<Accessoire> accessoires){
-        this.accessoires = accessoires; 
+    public void setAccessories(List<Accessoire> accessories){
+        this.accessories = accessories;
     }
     public List<Jewelry> getJewelry(){
         return this.jewelry; 
@@ -64,18 +76,38 @@ public class Closet {
     public void setJewelry(List<Jewelry> jewelry){
         this.jewelry = jewelry; 
     }
+    public List<Bag> getBags() {
+        return bags;
+    }
+    public void setBags(List<Bag> bags) {
+        this.bags = bags;
+    }
 
-    public void statusCloset(){
-        System.out.println("===================Status of Closet================");
-        System.out.println("\tTops: " + tops.size());
-        System.out.println("\tBottoms: " + bottoms.size());
-        System.out.println("\tDresses: " + dresses.size());
-        System.out.println("\tShoes: " + shoes.size());
-        System.out.println("\tAccessoires: " + accessoires.size());
-        System.out.println("\tJewelry: " + jewelry.size());
+    public void addItem(Clothing clothing){
+
+    }
+
+    public void showStatus() throws  NullPointerException{
+        try {
+            System.out.println("=================== Status of Closet ===================");
+            System.out.println("\tTops:\t\t\t" + this.getTops().size());
+            System.out.println("\tBottoms:\t\t" + this.getBottoms().size());
+            System.out.println("\tDresses:\t\t" + this.getDresses().size());
+            System.out.println("\tShoes:\t\t\t" + this.getShoes().size());
+            System.out.println("\tBags:\t\t\t"+ this.getBags().size());
+            System.out.println("\tAccessories:\t" + this.getAccessories().size());
+            System.out.println("\tJewelry:\t\t" + this.getJewelry().size());
+            System.out.println("========================================================");
+        } catch (NullPointerException e) {
+            System.out.println("\t\tStatus did not work");
+            System.out.println("========================================================");
+        }
+
     }
 
     public static void main (String [] args){
+        Closet c1 = new Closet();
+        c1.showStatus();
 
     }
 }
