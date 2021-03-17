@@ -1,3 +1,5 @@
+package clothingDef; 
+
 public abstract class Clothing {
     private String name; 
     private String Size; 
