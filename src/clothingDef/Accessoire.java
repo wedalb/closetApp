@@ -1,5 +1,7 @@
 package clothingDef; 
 
-public class Accessoire {
-    
+public class Accessoire extends Clothing{
+    public Accessoire(){
+        super();
+    }
 }

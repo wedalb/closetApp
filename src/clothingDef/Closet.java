@@ -87,6 +87,10 @@ public class Closet {
 
     }
 
+    /**
+     * shows the current status of your closet
+     * @throws NullPointerException
+     */
     public void showStatus() throws  NullPointerException{
         try {
             System.out.println("=================== Status of Closet ===================");
