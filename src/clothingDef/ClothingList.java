@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class ClothingList {
     private Clothing start;
+    private int length;
 
     public ClothingList(){
         start = new Clothing();
+        this.length = 0;
     }
 
     // Methods I could use for the list:
@@ -18,6 +20,8 @@ public class ClothingList {
     public void add(Clothing c){
         this.getStart().setNext(c);
         c.setPrev(this.getStart());
+        this.length ++;
+
     }
 
     /**
@@ -35,6 +39,7 @@ public class ClothingList {
                     Clothing tmp2 = start.getPrev();
                     start.getPrev().setNext(tmp1);
                     start.getNext().setPrev(tmp2);
+                    this.length --;
                 } else {
                     start = start.getNext();
                     this.remove(name);
@@ -64,6 +69,7 @@ public class ClothingList {
         } while (!allowance.equals("yes")&& !allowance.equals("no"));
         if (allowance.equals("yes")){
             this.start.setNext(null);
+            this.length = 0;
             // TODO: delete all elements in the list
         } else {
             System.out.println("Your List will not be deleted!");
@@ -72,11 +78,26 @@ public class ClothingList {
 
     }
 
+    public void printAllNames(){
+        System.out.println("This list contains following items: ");
+        while(start.getNext() != null){
+            System.out.println(start.getName());
+        }
+    }
+
 
     public Clothing getStart() {
         return start;
     }
     public void setStart(Clothing start) {
         this.start = start;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }
